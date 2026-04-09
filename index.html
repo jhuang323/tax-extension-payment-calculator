@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<!--
+   ______                            __
+  / ____/___  ____ ___  ____  __  __/ /____  _____
+ / /   / __ \/ __ `__ \/ __ \/ / / / __/ _ \/ ___/
+/ /___/ /_/ / / / / / / /_/ / /_/ / /_/  __/ /
+\____/\____/_/ /_/ /_/ .___/\__,_/\__/\___/_/
+                    /_/
+        Created with Perplexity Computer
+        https://www.perplexity.ai/computer
+-->
+
+<!-- Perplexity Computer Attribution — SEO Meta Tags -->
+<meta name="generator" content="Perplexity Computer">
+<meta name="author" content="Perplexity Computer">
+<meta property="og:see_also" content="https://www.perplexity.ai/computer">
+<link rel="author" href="https://www.perplexity.ai/computer">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2025 Tax Extension Payment Calculator — JH Group CPA</title>
+<meta name="description" content="Estimate your 2025 federal and California tax extension payments. Calculate safe harbor amounts, penalties, and interest for Form 4868 and FTB 3519.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300..700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="./base.css">
+<link rel="stylesheet" href="./style.css">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%230f1729'/><text x='16' y='22' text-anchor='middle' font-family='serif' font-weight='700' font-size='16' fill='%23d4a843'>JH</text></svg>">
+</head>
+<body>
+<a href="#main-content" class="sr-only" style="position:absolute;top:0;left:0;padding:var(--space-2) var(--space-4);background:var(--color-primary);color:#fff;z-index:9999;transform:translateY(-100%);transition:transform 0.2s" onfocus="this.style.transform='translateY(0)'" onblur="this.style.transform='translateY(-100%)'">Skip to content</a>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo-group">
+      <svg class="logo-mark" viewBox="0 0 48 48" width="40" height="40" aria-label="JH Group CPA logo" role="img">
+        <rect width="48" height="48" rx="8" fill="#0f1729"/>
+        <rect x="1" y="1" width="46" height="46" rx="7" fill="none" stroke="#d4a843" stroke-width="1"/>
+        <rect x="20" y="4" width="8" height="8" rx="1" transform="rotate(45 24 8)" fill="#d4a843" opacity="0.15"/>
+        <text x="24" y="33" text-anchor="middle" font-family="'DM Serif Display', Georgia, serif" font-weight="400" font-size="22" fill="#d4a843" letter-spacing="-1">JH</text>
+        <rect x="14" y="39" width="20" height="1.5" rx="0.75" fill="#d4a843" opacity="0.3"/>
+      </svg>
+      <div class="logo-text">
+        <span class="logo-name">JH Group CPA</span>
+        <span class="logo-tagline">Tax Extension Calculator</span>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button type="button" class="btn-reset" id="resetBtn" aria-label="Reset all fields">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+        Start Over
+      </button>
+      <button type="button" class="btn-print" id="printBtn" aria-label="Print summary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        Print
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Welcome Banner -->
+<div class="welcome-banner">
+  <div class="welcome-inner">
+    <h1 class="welcome-title">How much should you pay with your 2025 tax extension?</h1>
+    <p class="welcome-desc">Answer a few simple questions below and we'll calculate your recommended payment. You'll need your <strong>2024 tax return</strong> handy — we'll show you exactly where to find each number.</p>
+  </div>
+</div>
+
+<main id="main-content" class="main-layout">
+  <div class="form-column">
+
+    <!-- Section 1: Filing Information -->
+    <section class="form-section" aria-labelledby="sec-filing">
+      <div class="section-header">
+        <span class="section-number">1</span>
+        <h2 id="sec-filing">Your Filing Information</h2>
+      </div>
+      <p class="section-intro">Let's start with the basics from your <strong>2024 tax return</strong>.</p>
+      <div class="form-grid">
+        <div class="field">
+          <label for="filingStatus">What is your filing status?</label>
+          <select id="filingStatus">
+            <option value="single">Single</option>
+            <option value="mfj" selected>Married Filing Jointly</option>
+            <option value="mfs">Married Filing Separately</option>
+            <option value="hoh">Head of Household</option>
+            <option value="qss">Qualifying Surviving Spouse</option>
+          </select>
+          <span class="field-hint">Same as what you filed for 2024 (unless it changed)</span>
+        </div>
+        <div class="field">
+          <label for="priorAGI">Your 2024 Adjusted Gross Income (AGI)</label>
+          <div class="input-wrap">
+            <span class="input-prefix">$</span>
+            <input type="text" id="priorAGI" inputmode="numeric" placeholder="0" autocomplete="off">
+          </div>
+          <div class="where-to-find">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            <span><strong>Where to find this:</strong> Your 2024 Form 1040, <strong class="line-ref">Line 11</strong></span>
+          </div>
+        </div>
+        <div class="field">
+          <label for="priorTax">Your 2024 Total Federal Tax</label>
+          <div class="input-wrap">
+            <span class="input-prefix">$</span>
+            <input type="text" id="priorTax" inputmode="numeric" placeholder="0" autocomplete="off">
+          </div>
+          <div class="where-to-find">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            <span><strong>Where to find this:</strong> Your 2024 Form 1040, <strong class="line-ref">Line 24</strong> (Total Tax)</span>
+          </div>
+        </div>
+        <div class="ca-fields" id="caFieldsPrior" hidden>
+          <div class="field">
+            <label for="priorCATax">Your 2024 Total California Tax</label>
+            <div class="input-wrap">
+              <span class="input-prefix">$</span>
+              <input type="text" id="priorCATax" inputmode="numeric" placeholder="0" autocomplete="off">
+            </div>
+            <div class="where-to-find">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+              <span><strong>Where to find this:</strong> Your 2024 CA Form 540, <strong class="line-ref">Line 64 or 71</strong></span>
+            </div>
+          </div>
+        </div>
+        <div class="field field-toggle">
+          <label for="caResident" class="toggle-label">
+            <span class="toggle-text">Do you live in California?</span>
+            <span class="toggle-switch">
+              <input type="checkbox" id="caResident" role="switch">
+              <span class="toggle-track" aria-hidden="true"></span>
+            </span>
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: 2025 Income & Tax Estimates -->
+    <section class="form-section" aria-labelledby="sec-estimates">
+      <div class="section-header">
+        <span class="section-number">2</span>
+        <h2 id="sec-estimates">Your 2025 Estimates</h2>
+      </div>
+      <p class="section-intro">Now, let's estimate what you'll owe for 2025. <strong>Don't worry if you're not sure</strong> — a rough estimate is fine, or use our Quick Estimator below.</p>
+      <div class="form-grid">
+        <div class="field">
+          <label for="estIncome">How much total income do you expect to earn in 2025?</label>
+          <div class="input-wrap">
+            <span class="input-prefix">$</span>
+            <input type="text" id="estIncome" inputmode="numeric" placeholder="0" autocomplete="off">
+          </div>
+          <span class="field-hint">Include all income: wages, business, investments, rental, etc.</span>
+        </div>
+        <div class="field">
+          <label for="estTax">How much federal tax do you think you'll owe for 2025?</label>
+          <div class="input-wrap">
+            <span class="input-prefix">$</span>
+            <input type="text" id="estTax" inputmode="numeric" placeholder="0" autocomplete="off">
+          </div>
+          <span class="field-hint">Your best guess is fine. If similar to 2024, use your 2024 amount from above.</span>
+          <button type="button" class="helper-toggle" id="fedHelperToggle" aria-expanded="false" aria-controls="fedHelper">
+            <span class="helper-toggle-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            </span>
+            <span class="helper-toggle-text">
+              <strong>Not sure? <span class="click-here">Click here</span> to use our <span class="quick-est">Quick Estimator</span></strong>
+              <span class="helper-toggle-sub">We'll calculate it for you based on your income</span>
+            </span>
+            <svg class="chevron-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="helper-panel" id="fedHelper" hidden>
+            <div class="helper-title">Federal Tax Quick Estimator</div>
+            <p class="helper-desc">Enter your details below. We'll estimate your 2025 federal tax using the latest tax brackets, and you can apply the result with one click.</p>
+            <div class="helper-grid">
+              <div class="helper-field">
+                <label for="helpIncome">Your expected 2025 total income (AGI)</label>
+                <div class="input-wrap">
+                  <span class="input-prefix">$</span>
+                  <input type="text" id="helpIncome" inputmode="numeric" placeholder="0" autocomplete="off">
+                </div>
+                <span class="field-hint">Wages + business + investments + everything else</span>
+              </div>
+              <div class="helper-field">
+                <label for="helpDeductions">Your deductions (leave blank to use standard)</label>
+                <div class="input-wrap">
+                  <span class="input-prefix">$</span>
+                  <input type="text" id="helpDeductions" inputmode="numeric" placeholder="0" autocomplete="off">
+                </div>
+                <span class="field-hint">Standard deduction: $15,000 (Single), $30,000 (Married)</span>
+              </div>
+              <div class="helper-field">
+                <label for="helpSEIncome">Self-employment income (if any)</label>
+                <div class="input-wrap">
+                  <span class="input-prefix">$</span>
+                  <input type="text" id="helpSEIncome" inputmode="numeric" placeholder="0" autocomplete="off">
+                </div>
+                <span class="field-hint">Skip this if you only have W-2 wages</span>
+              </div>
+              <div class="helper-field">
+                <label for="helpCredits">Tax credits you expect to claim</label>
+                <div class="input-wrap">
+                  <span class="input-prefix">$</span>
+                  <input type="text" id="helpCredits" inputmode="numeric" placeholder="0" autocomplete="off">
+                </div>
+                <span class="field-hint">Child tax credit ($2,000/child), education credits, etc.</span>
+              </div>
+            </div>
+            <div class="helper-result">
+              <span class="helper-result-label">Your estimated 2025 federal tax:</span>
+              <span class="helper-result-value" id="helpFedResult">$0</span>
+            </div>
+            <button type="button" class="helper-apply-btn" id="helpFedApply">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Use This Amount
+            </button>
+            <p class="helper-note">Uses 2025 federal tax brackets (10%–37%), self-employment tax (15.3%), and Net Investment Income Tax (3.8%). This is a rough estimate — your actual tax may differ.</p>
+          </div>
+        </div>
+        <div class="ca-fields" id="caFieldsEstimates" hidden>
+          <div class="field">
+            <label for="estCATax">How much California tax do you think you'll owe for 2025?</label>
+            <div class="input-wrap">
+              <span class="input-prefix">$</span>
+              <input type="text" id="estCATax" inputmode="numeric" placeholder="0" autocomplete="off">
+            </div>
+            <span class="field-hint">If similar to 2024, use your 2024 CA tax amount from above.</span>
+            <button type="button" class="helper-toggle" id="caHelperToggle" aria-expanded="false" aria-controls="caHelper">
+              <span class="helper-toggle-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              </span>
+              <span class="helper-toggle-text">
+                <strong>Not sure? <span class="click-here">Click here</span> for the <span class="quick-est">CA Quick Estimator</span></strong>
+                <span class="helper-toggle-sub">We'll estimate your California tax</span>
+              </span>
+              <svg class="chevron-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="helper-panel" id="caHelper" hidden>
+              <div class="helper-title">California Tax Quick Estimator</div>
+              <p class="helper-desc">Enter your CA taxable income below. We'll estimate your 2025 California tax.</p>
+              <div class="helper-grid">
+                <div class="helper-field">
+                  <label for="helpCAIncome">Your 2025 CA taxable income</label>
+                  <div class="input-wrap">
+                    <span class="input-prefix">$</span>
+                    <input type="text" id="helpCAIncome" inputmode="numeric" placeholder="0" autocomplete="off">
+                  </div>
+                  <span class="field-hint">Roughly: your total income minus CA standard deduction ($5,540 Single / $11,080 Married)</span>
+                </div>
+              </div>
+              <div class="helper-result">
+                <span class="helper-result-label">Your estimated 2025 CA tax:</span>
+                <span class="helper-result-value" id="helpCAResult">$0</span>
+              </div>
+              <button type="button" class="helper-apply-btn" id="helpCAApply">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                Use This Amount
+              </button>
+              <p class="helper-note">Uses 2025 CA tax brackets (1%–13.3%) plus Mental Health Services Tax (1% over $1M). This is a rough estimate.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Payments Already Made -->
+    <section class="form-section" aria-labelledby="sec-payments">
+      <div class="section-header">
+        <span class="section-number">3</span>
+        <h2 id="sec-payments">Taxes You've Already Paid</h2>
+      </div>
+      <p class="section-intro">Enter the total amount of federal tax that was <strong>already withheld or paid</strong> during 2025. Check your latest pay stub or estimated payment records.</p>
+      <div class="form-grid">
+        <div class="field">
+          <label for="fedWithholding">Federal tax withheld from your paychecks</label>
+          <div class="input-wrap">
+            <span class="input-prefix">$</span>
+            <input type="text" id="fedWithholding" inputmode="numeric" placeholder="0" autocomplete="off">
+          </div>
+          <span class="field-hint">From your W-2, 1099, or latest pay stub (year-to-date federal tax withheld)</span>
+        </div>
+        <div class="field">
+          <label for="fedEstPayments">Estimated tax payments you sent to the IRS</label>
+          <div class="input-wrap">
+            <span class="input-prefix">$</span>
+            <input type="text" id="fedEstPayments" inputmode="numeric" placeholder="0" autocomplete="off">
+          </div>
+          <span class="field-hint">Total of all quarterly payments (Q1–Q4). Enter 0 if you didn't make any.</span>
+        </div>
+        <div class="ca-fields" id="caFieldsPayments" hidden>
+          <div class="field">
+            <label for="caWithholding">California tax withheld from your paychecks</label>
+            <div class="input-wrap">
+              <span class="input-prefix">$</span>
+              <input type="text" id="caWithholding" inputmode="numeric" placeholder="0" autocomplete="off">
+            </div>
+            <span class="field-hint">From your pay stub (year-to-date CA state tax withheld)</span>
+          </div>
+          <div class="field">
+            <label for="caEstPayments">Estimated tax payments you sent to the FTB</label>
+            <div class="input-wrap">
+              <span class="input-prefix">$</span>
+              <input type="text" id="caEstPayments" inputmode="numeric" placeholder="0" autocomplete="off">
+            </div>
+            <span class="field-hint">Total of all CA quarterly payments. Enter 0 if you didn't make any.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="results-column" id="resultsColumn">
+
+    <!-- Section 4: Federal Results -->
+    <section class="results-section" aria-labelledby="sec-fed-results">
+      <h2 id="sec-fed-results" class="results-title">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg>
+        Federal Results
+      </h2>
+      <div class="result-cards">
+        <div class="result-card primary">
+          <span class="result-label">Estimated Tax Due</span>
+          <span class="result-value" id="fedTaxDue">$0</span>
+          <span class="result-sublabel">2025 liability &minus; payments made</span>
+        </div>
+        <div class="result-card">
+          <span class="result-label">Safe Harbor Amount</span>
+          <span class="result-value" id="fedSafeHarbor">$0</span>
+          <span class="result-sublabel" id="fedSafeHarborDesc">100% of prior year tax</span>
+        </div>
+        <div class="result-card accent">
+          <span class="result-label">Extension Payment Needed</span>
+          <span class="result-value" id="fedExtPayment">$0</span>
+          <span class="result-sublabel">Safe harbor &minus; payments already made</span>
+        </div>
+      </div>
+      <div class="penalty-section">
+        <h3>If $0 Paid With Extension</h3>
+        <div class="penalty-row">
+          <span class="penalty-label">Potential Underpayment</span>
+          <span class="penalty-value" id="fedUnderpayment">$0</span>
+        </div>
+        <div class="penalty-row">
+          <span class="penalty-label">Est. IRS Interest (7% APR, ~183 days)</span>
+          <span class="penalty-value" id="fedInterest">$0</span>
+        </div>
+        <div class="penalty-row">
+          <span class="penalty-label">Late Payment Penalty (0.5%/mo, up to 5 mo)</span>
+          <span class="penalty-value" id="fedPenalty">$0</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4b: California Results -->
+    <section class="results-section ca-results" id="caResults" hidden aria-labelledby="sec-ca-results">
+      <h2 id="sec-ca-results" class="results-title">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 11.7z"/></svg>
+        California Results
+      </h2>
+      <div class="result-cards">
+        <div class="result-card primary">
+          <span class="result-label">Estimated CA Tax Due</span>
+          <span class="result-value" id="caTaxDue">$0</span>
+        </div>
+        <div class="result-card">
+          <span class="result-label">CA Safe Harbor</span>
+          <span class="result-value" id="caSafeHarbor">$0</span>
+          <span class="result-sublabel" id="caSafeHarborDesc">100% of prior year CA tax</span>
+        </div>
+        <div class="result-card accent">
+          <span class="result-label">CA Extension Payment Needed</span>
+          <span class="result-value" id="caExtPayment">$0</span>
+        </div>
+      </div>
+      <div class="penalty-section">
+        <h3>CA Penalties If Underpaid</h3>
+        <div class="penalty-row">
+          <span class="penalty-label">Underpayment Penalty (8%&rarr;7% blended)</span>
+          <span class="penalty-value" id="caPenalty">$0</span>
+        </div>
+        <div class="penalty-row">
+          <span class="penalty-label">Late Payment Penalty (5% + 0.5%/mo)</span>
+          <span class="penalty-value" id="caLatePenalty">$0</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Payment Summary -->
+    <section class="summary-card" aria-labelledby="sec-summary">
+      <h2 id="sec-summary" class="summary-title">Payment Summary</h2>
+      <div class="summary-total">
+        <span class="summary-total-label">Total Recommended Extension Payment</span>
+        <span class="summary-total-value" id="totalPayment">$0</span>
+      </div>
+      <div class="summary-breakdown">
+        <div class="summary-row">
+          <span>Federal</span>
+          <span id="summaryFed">$0</span>
+        </div>
+        <div class="summary-row ca-summary-row" id="caSummaryRow" hidden>
+          <span>California</span>
+          <span id="summaryCa">$0</span>
+        </div>
+      </div>
+      <div class="summary-meta">
+        <div class="meta-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span>Due: <strong>April 15, 2026</strong></span>
+        </div>
+      </div>
+      <div class="payment-links">
+        <span class="pay-label">Pay Online:</span>
+        <a href="https://www.irs.gov/payments/direct-pay" target="_blank" rel="noopener noreferrer" class="pay-link">IRS Direct Pay</a>
+        <a href="https://www.eftps.gov/" target="_blank" rel="noopener noreferrer" class="pay-link">EFTPS</a>
+        <a href="https://www.ftb.ca.gov/pay/index.html" target="_blank" rel="noopener noreferrer" class="pay-link ca-pay-link" id="caPayLink" hidden>CA Web Pay</a>
+      </div>
+      <p class="disclaimer-text">This calculator provides estimates only. Consult with JH Group CPA for personalized tax advice.</p>
+    </section>
+
+    <!-- Section 6: Risk Scenarios -->
+    <section class="scenarios-section" aria-labelledby="sec-scenarios">
+      <h2 id="sec-scenarios" class="results-title">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Risk Scenarios
+      </h2>
+      <div class="scenario-cards">
+        <div class="scenario-card conservative">
+          <div class="scenario-badge low">Low Risk</div>
+          <h3>Conservative</h3>
+          <p class="scenario-desc">Overpay to eliminate penalty risk entirely</p>
+          <span class="scenario-amount" id="scenarioConservative">$0</span>
+          <span class="scenario-sublabel" id="scenarioConservativeDesc">110% of prior year tax</span>
+        </div>
+        <div class="scenario-card standard">
+          <div class="scenario-badge medium">Medium Risk</div>
+          <h3>Standard</h3>
+          <p class="scenario-desc">Pay the recommended safe harbor minimum</p>
+          <span class="scenario-amount" id="scenarioStandard">$0</span>
+          <span class="scenario-sublabel">Recommended safe harbor</span>
+        </div>
+        <div class="scenario-card aggressive">
+          <div class="scenario-badge higher">Higher Risk</div>
+          <h3>Aggressive</h3>
+          <p class="scenario-desc">Minimum based on current year estimate</p>
+          <span class="scenario-amount" id="scenarioAggressive">$0</span>
+          <span class="scenario-sublabel">90% of estimated current year</span>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p class="footer-copy">&copy; 2026 JH Group CPA. All rights reserved.</p>
+    <p class="footer-disclaimer">This tool provides estimates for informational purposes only and does not constitute tax advice. Tax laws are complex and subject to change. Always consult with a qualified tax professional before making tax decisions.</p>
+  </div>
+</footer>
+
+<!-- Print-only section -->
+<div class="print-only" id="printSummary" aria-hidden="true">
+  <div class="print-header">
+    <h1>2025 Tax Extension Payment Estimate</h1>
+    <p>Prepared by JH Group CPA &bull; <span id="printDate"></span></p>
+  </div>
+  <div id="printContent"></div>
+  <div class="print-disclaimer">
+    <p>This estimate is for informational purposes only. Consult with JH Group CPA for personalized tax advice.</p>
+  </div>
+</div>
+
+<script src="./app.js" defer></script>
+</body>
+</html>
