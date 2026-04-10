@@ -32,7 +32,9 @@ This calculator solves that. Enter three numbers from last year's return, make a
 
 ## Live Demo
 
-> Deploy it yourself in 30 seconds — see the [Deployment](#deployment) section below.
+**[Try it live → jhgroupcpa.com/extension-calculator](https://jhgroupcpa.com/extension-calculator)**
+
+Or deploy your own copy in 30 seconds — see the [Deployment](#deployment) section below.
 
 ---
 
