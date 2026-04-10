@@ -36,11 +36,11 @@ This calculator solves that. Enter three numbers from last year's return, make a
 
 ---
 
-## Screenshots
+## Screenshot
 
-| Input Form | Results Panel |
-|---|---|
-| Filing status, prior year AGI & tax, income estimates | Safe harbor amount, extension payment due, penalty projections |
+![2025 Tax Extension Payment Calculator — JH Group CPA](Screenshot-Calculator.png)
+
+*Enter three numbers from last year's return, get an instant safe-harbor payment recommendation with federal and California breakdowns.*
 
 ---
 
